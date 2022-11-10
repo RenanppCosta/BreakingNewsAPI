@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectDb = ()=>{
-    mongoose.connect("mongodb+srv://root:renan2012nha@cluster0.fq9i7wz.mongodb.net/?retryWrites=true&w=majority", 
+    mongoose.connect( process.env.MONGODB_URI, 
     {useNewUrlParser: true, useUnifiedTopology: true}
     )
     .then(()=> console.log("Banco de dados conectado"))
