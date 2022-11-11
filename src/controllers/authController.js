@@ -18,7 +18,9 @@ const login = async (req, res)=>{
             return res.status(404).send({message:"A senha ou o Usuário estão incorretos."});
         }
 
-        res.send("Logado");
+        const token = authService.generateToken(user.id);
+
+        res.send(token);
         
 
     } catch(err){
