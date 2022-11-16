@@ -8,10 +8,12 @@ const countNews = () => News.countDocuments();
 
 const topNews = () => News.findOne().sort({_id: -1}).populate("user");
 
+const findById = (id) => News.findById(id).populate("user");
 
 module.exports = {
     create,
     findAll,
     countNews,
-    topNews
+    topNews,
+    findById
 }
