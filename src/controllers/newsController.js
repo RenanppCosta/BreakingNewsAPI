@@ -79,11 +79,39 @@ const findAll = async (req,res)=>{
       } catch (err) {
         res.status(500).send({ message: err.message });
       }
+};
+
+const topNews = async (req,res)=>{
+    try{
+
+    }catch(err){
+        res.status(500).send({message: err.message})
+    }
+    const news = await newsService.topNews();
+
+    if(!news){
+        res.status(400).send({message:"Não uma notícia cadastrada."})
     };
 
+    res.send({
+        news:{
+            id: news._id,
+            title: news.title,
+            text: news.text,
+            banner: news.banner,
+            likes: news.likes,
+            comments: news.comments,
+            name: news.user.name,
+            username: news.user.username,
+            userAvatar: news.user.avatar,
+        }
+    })
+
+}
 
 
 module.exports = {
     create,
-    findAll
+    findAll,
+    topNews
 }

@@ -6,9 +6,12 @@ const findAll = (offset, limit) => News.find().sort({_id:-1}).skip(offset).limit
 
 const countNews = () => News.countDocuments();
 
+const topNews = () => News.findOne().sort({_id: -1}).populate("user");
+
 
 module.exports = {
     create,
     findAll,
-    countNews
+    countNews,
+    topNews
 }
