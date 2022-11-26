@@ -7,7 +7,7 @@ router.post("/", authMiddleware, newsController.create);
 router.get("/all", newsController.findAll);
 router.get("/top", newsController.topNews);
 router.get("/search", newsController.searchByTitle);
-
+router.get("/byUser", authMiddleware, newsController.byUser)
 router.get("/:id", authMiddleware, newsController.findById);
 
 module.exports = router;
