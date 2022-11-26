@@ -6,6 +6,8 @@ const authMiddleware = require("../middlewares/authMiddleware");
 router.post("/", authMiddleware, newsController.create);
 router.get("/all", newsController.findAll);
 router.get("/top", newsController.topNews);
-router.get("/:id", newsController.findById)
+router.get("/search", newsController.searchByTitle);
+
+router.get("/:id", authMiddleware, newsController.findById);
 
 module.exports = router;

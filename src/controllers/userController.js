@@ -18,7 +18,7 @@ const create = async (req, res) =>{
 
     res.status(201).send({message: "Usuario criado com sucesso!", 
     user: {
-        id: user._id,
+        id: user.id,
         name,
         username,
         email,
